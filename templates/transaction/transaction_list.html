@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Transactions</h2>
+    <a href="{% url 'transaction-add' %}">Add Transaction</a>
+    <a href="{% url 'category-list' %}">List Category</a>
+    <ul>
+        {% for object in object_list %}
+            <li><a href="{% url 'transaction-detail' object.pk %}">{{ object.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

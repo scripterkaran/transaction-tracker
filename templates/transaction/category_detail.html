@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Category Detail</h2>
+    <a href="{% url 'category-list' %}">Category List</a>
+    <ul>
+        <li> Name: {{ object.name }}</li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Transaction Detail</h2>
+    <a href="{% url 'transaction-list' %}">Transactions</a>
+    <ul>
+       <li> Name:  {{ object.name }}</li>
+        <li>Value :   {{ object.value }}</li>
+        <li>Transaction Type : {{ object.get_transaction_type_display }}</li>
+        <li>Category : {{ object.category }}</li>
+    </ul>
+{% endblock %}
