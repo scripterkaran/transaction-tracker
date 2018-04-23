@@ -2,11 +2,11 @@
 
 {% block content %}
     <h2>Category</h2>
-    <a href="{% url 'transaction-list' %}">List Transaction</a>
     <a href="{% url 'category-add' %}">Add Category</a>
     <ul>
         {% for object in object_list %}
             <li><a href="{% url 'category-detail' object.pk %}">{{ object.name }}</a></li>
         {% endfor %}
     </ul>
+
 {% endblock %}

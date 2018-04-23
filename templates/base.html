@@ -1,7 +1,9 @@
+{% load staticfiles %}
 <head>
     <title>
         {% block title %}Transaction{% endblock %}
     </title>
+    <link rel="stylesheet" href="{% static 'transaction/css/main.css' %}">
 </head>
 
 
@@ -10,4 +12,8 @@
     {% include 'partials/nav.html' %}
 {% endblock %}
 </body>
-{% block content %}{% endblock %}
+<div class="container">
+    {% block content %}
+
+    {% endblock %}
+</div>

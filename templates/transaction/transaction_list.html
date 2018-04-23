@@ -1,12 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
+
     <h2>Transactions</h2>
     <a href="{% url 'transaction-add' %}">Add Transaction</a>
-    <a href="{% url 'category-list' %}">List Category</a>
-    <ul>
-        {% for object in object_list %}
-            <li><a href="{% url 'transaction-detail' object.pk %}">{{ object.name }}</a></li>
+    <table>
+        {% include 'transaction/base_table.html' %}
+        {% for object in  object_list %}
+            <tr>
+                <th>{{ object.name }}</th>
+                <th>{{ object.category }}</th>
+                <th>{{ object.value }}</th>
+                <th>{{ object.created_at | date }}</th>
+                <th><a href="{% url 'transaction-detail' object.id %}">Detail</a></th>
+            </tr>
         {% endfor %}
-    </ul>
+    </table>
 {% endblock %}

@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include
 from django.urls import path
+from django.conf.urls.static import static
 
+from transaction_tracker import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('core.urls')),
     path('', include('transaction.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

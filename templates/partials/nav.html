@@ -1,8 +1,12 @@
+<div class="nav-bar">
 <ul>
     {% if request.user.is_authenticated %}
-        <li><a href="{% url 'transaction-list' %}">Home</a></li>
-        <li><a href="{% url 'logout' %}">Logout</a></li>
+        <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+        <li><a href="{% url 'transaction-list' %}">Transactions</a></li>
+        <li><a href="{% url 'category-list' %}">Category</a></li>
+        <li style="float: right"><a href="{% url 'logout' %}">Logout</a></li>
     {% else %}
         <li><a href="{% url 'login' %}">Login</a></li>
     {% endif %}
 </ul>
+</div>

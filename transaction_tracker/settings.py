@@ -121,5 +121,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+LOGIN_URL = '/auth/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
-LOGIN_REDIRECT_URL = '/transactions/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR
+STATIC_ROOT = '%s/static/' %  BASE_DIR
+
+
