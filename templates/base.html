@@ -8,12 +8,19 @@
 
 
 <body>
-{% block nav %}
-    {% include 'partials/nav.html' %}
-{% endblock %}
-</body>
-<div class="container">
-    {% block content %}
+<div class="site-container">
+    <div class="site-pusher">
+        {% block nav %}
+            {% include 'partials/nav.html' %}
+        {% endblock %}
+        <div class="site-content">
+            <div class="container">
+                {% block content %}
 
-    {% endblock %}
-</div>
+                {% endblock %}
+            </div> <!-- END container -->
+        </div> <!-- END site-content -->
+        <div class="site-cache" id="site-cache"></div>
+    </div> <!-- END site-pusher -->
+</div> <!-- END site-container -->
+</body>

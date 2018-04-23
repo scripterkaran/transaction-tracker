@@ -2,7 +2,7 @@
 
 {% block content %}
     <h2>Category</h2>
-    <a href="{% url 'category-add' %}">Add Category</a>
+    <a href="{% url 'category-add' %}" class="link-button">Add Category</a>
     <ul>
         {% for object in object_list %}
             <li><a href="{% url 'category-detail' object.pk %}">{{ object.name }}</a></li>

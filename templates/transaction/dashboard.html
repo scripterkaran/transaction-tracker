@@ -3,18 +3,19 @@
 {% block content %}
     <h1>dashboard</h1>
     <div>Last 5 Transactions</div>
-    <table>
-        {% include 'transaction/base_table.html' %}
-        {% for transaction in  transactions %}
-            <tr>
-                <th>{{ transaction.name }}</th>
-                <th>{{ transaction.category }}</th>
-                <th>{{ transaction.value }}</th>
-                <th>{{ transaction.created_at | date }}</th>
-                <th> <a href="{% url 'transaction-detail' transaction.id %}">Detail</a> </th>
-            </tr>
-        {% endfor %}
-    </table>
-    <a href="{% url 'transaction-list' %}">List All Transactions</a>
-    <a href="{% url 'transaction-add' %}">Add Transaction</a></div>
+    <div class="dashboard--transaction--list">
+    {% for transaction in  transactions %}
+        <div class="badge">
+            <div>
+                {{ transaction.name }}
+                <small class="location">{{ transaction.category }}</small>
+                <small class="location">{{ transaction.value }}</small>
+                <small class="location">{{ transaction.created_at | date }}</small>
+            </div>
+            <a class="link-button" href="{% url 'transaction-detail' transaction.id %}">Detail</a>
+        </div>
+    {% endfor %}
+    </div>
+    <a href="{% url 'transaction-list' %}" class="link-button">List All Transactions</a>
+    <a href="{% url 'transaction-add' %}" class="link-button">Add Transaction</a></div>
 {% endblock %}
