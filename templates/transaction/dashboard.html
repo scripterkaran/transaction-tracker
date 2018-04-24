@@ -9,7 +9,11 @@
             <div>
                 {{ transaction.name }}
                 <small class="location">{{ transaction.category }}</small>
-                <small class="location">{{ transaction.value }}</small>
+                {% if transaction.transaction_type == 1 %}
+                    <p class="type--debit">{{ transaction.value }}</p>
+                {% else %}
+                    <p class="type--credit">{{ transaction.value }}</p>
+                {% endif %}
                 <small class="location">{{ transaction.created_at | date }}</small>
             </div>
             <a class="link-button" href="{% url 'transaction-detail' transaction.id %}">Detail</a>

@@ -10,7 +10,11 @@
             <div>
                 {{ object.name }}
                 <small class="location">{{ object.category }}</small>
-                <small class="location">{{ object.value }}</small>
+                {% if object.transaction_type == 1 %}
+                    <p class="type--debit">{{ object.value }}</p>
+                {% else %}
+                    <p class="type--credit">{{ object.value }}</p>
+                {% endif %}
                 <small class="location">{{ object.created_at | date }}</small>
             </div>
             <a class="link-button" href="{% url 'transaction-detail' object.id %}">Detail</a>
